@@ -130,6 +130,13 @@ START_TEST (convert_2000_to_MM) {
 }
 END_TEST
 
+START_TEST (convert_4_to_IV) {
+	char roman[10];
+	convertArabicNumeralToRoman(4, roman);
+	ck_assert_str_eq(roman, "IV");
+}
+END_TEST
+
 Suite * to_arabic(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -158,7 +165,7 @@ Suite * to_arabic(void) {
 	//general sanity test
 	tcase_add_test(tc_core, convert_MCMXCIV_to_1994);
 
-	//arabic to roman conversions
+	// basic arabic to roman conversions
 	tcase_add_test(tc_core, convert_1_to_I);
 	tcase_add_test(tc_core, convert_2_to_II);
 	tcase_add_test(tc_core, convert_5_to_V);
@@ -167,6 +174,9 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_200_to_CC);
 	tcase_add_test(tc_core, convert_500_to_D);
 	tcase_add_test(tc_core, convert_2000_to_MM);
+
+	//substractive arabic to roman conversions
+	tcase_add_test(tc_core, convert_4_to_IV);
 
 	suite_add_tcase(s, tc_core);
 
