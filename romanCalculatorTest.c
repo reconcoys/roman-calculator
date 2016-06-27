@@ -9,6 +9,11 @@ START_TEST (convert_I_to_1) {
 }
 END_TEST
 
+START_TEST (convert_II_to_2) {
+	ck_assert_int_eq(convertRomanNumeralToArabic("II"), 2);
+}
+END_TEST
+
 Suite * roman_suite(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -19,6 +24,7 @@ Suite * roman_suite(void) {
 	tc_core = tcase_create("First");
 
 	tcase_add_test(tc_core, convert_I_to_1);
+	tcase_add_test(tc_core, convert_II_to_2);
 
 	suite_add_tcase(s, tc_core);
 
