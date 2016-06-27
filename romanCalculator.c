@@ -4,9 +4,18 @@
 #include "romanCalculator.h"
 
 void convertArabicNumeralToRoman(int arabic, char* roman) {
-	int i, numberOfOnes = arabic / 1;
+	int i;
+
+	int numberOfFives = arabic / 5;
+	for (i = 0; i < numberOfFives; i++) {
+		strcat(roman, "V");
+		arabic -= 5;
+	}
+
+	int numberOfOnes = arabic / 1;
 	for (i = 0; i < numberOfOnes; i++) {
 		strcat(roman, "I");
+		arabic -= 1;
 	}
 }
 
