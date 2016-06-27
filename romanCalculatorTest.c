@@ -69,6 +69,11 @@ START_TEST (convert_CM_to_900) {
 }
 END_TEST
 
+START_TEST (convert_MCMXCIV_to_1994) {
+	ck_assert_int_eq(convertRomanNumeralToArabic("MCMXCIV"), 1994);
+}
+END_TEST
+
 Suite * roman_suite(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -92,6 +97,8 @@ Suite * roman_suite(void) {
 	tcase_add_test(tc_core, convert_XC_to_90);
 	tcase_add_test(tc_core, convert_CD_to_400);
 	tcase_add_test(tc_core, convert_CM_to_900);
+
+	tcase_add_test(tc_core, convert_MCMXCIV_to_1994);
 
 	suite_add_tcase(s, tc_core);
 
