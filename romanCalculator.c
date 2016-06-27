@@ -10,6 +10,9 @@ int convertRomanNumeralToArabic(char *roman) {
 			case 'V':
 				arabic += 5;
 				break;
+			case 'X':
+				arabic += 10;
+				break;
 			default:
 				arabic = -1;
 		}
