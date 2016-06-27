@@ -44,6 +44,11 @@ START_TEST (convert_IV_to_4) {
 }
 END_TEST
 
+START_TEST (convert_IX_to_9) {
+	ck_assert_int_eq(convertRomanNumeralToArabic("IX"), 9);
+}
+END_TEST
+
 Suite * roman_suite(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -62,6 +67,7 @@ Suite * roman_suite(void) {
 	tcase_add_test(tc_core, convert_MM_to_1000);
 
 	tcase_add_test(tc_core, convert_IV_to_4);
+	tcase_add_test(tc_core, convert_IX_to_9);
 
 	suite_add_tcase(s, tc_core);
 

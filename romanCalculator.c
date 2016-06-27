@@ -13,12 +13,17 @@ int convertRomanNumeralToArabic(char *roman) {
 		}*/
 		switch (roman[i]) {
 			case 'I':
-				if (roman[i+1] == 'V') {
-					arabic += 4;
-					i++;
-				}
-				else {
-					arabic++;
+				switch (roman[i+1]) {
+					case 'V':
+						arabic += 4;
+						i++;
+						break;
+					case 'X':
+						arabic += 9;
+						i++;
+						break;
+					default:
+						arabic++;
 				}
 				break;
 			case 'V':
