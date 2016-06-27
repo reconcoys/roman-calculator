@@ -3,9 +3,23 @@
 int convertRomanNumeralToArabic(char *roman) {
 	int i, arabic = 0;
 	for (i = 0; i < roman[i] != '\0'; i++) {
+		/*switch (roman[i] + roman[i+1]) {
+			case 'IV':
+				arabic += 4;
+				i++;
+				break;
+			default:
+				arabic = -1;
+		}*/
 		switch (roman[i]) {
 			case 'I':
-				arabic++;
+				if (roman[i+1] == 'V') {
+					arabic += 4;
+					i++;
+				}
+				else {
+					arabic++;
+				}
 				break;
 			case 'V':
 				arabic += 5;
