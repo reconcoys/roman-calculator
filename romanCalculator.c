@@ -12,6 +12,15 @@ void addRomanNumerals(char *first, char *second, char* result) {
 	convertArabicNumeralToRoman(resultArabic, result);
 }
 
+void subtractFirstFromSecondRomanNumerals(char *first, char *second, char* result)	{
+	int firstArabic = convertRomanNumeralToArabic(first);
+	int secondArabic = convertRomanNumeralToArabic(second);
+
+	int resultArabic = secondArabic - firstArabic;
+
+	convertArabicNumeralToRoman(resultArabic, result);
+}
+
 void convertArabicNumeralToRoman(int arabic, char* roman) {
 	int i;
 

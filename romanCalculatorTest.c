@@ -193,6 +193,13 @@ START_TEST (add_CCXCVIII_to_DCCCXC) {
 }
 END_TEST
 
+START_TEST (subtract_V_from_XX) {
+	char roman[10];
+	subtractFirstFromSecondRomanNumerals("V", "XX", roman);
+	ck_assert_str_eq(roman, "XV");
+}
+END_TEST
+
 Suite * to_arabic(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -239,10 +246,13 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_400_to_CD);
 	tcase_add_test(tc_core, convert_900_to_CM);
 
-	//Add roman numerals together
+	//Add roman numerals
 	tcase_add_test(tc_core, add_I_to_I);
 	tcase_add_test(tc_core, add_V_to_V);
 	tcase_add_test(tc_core, add_CCXCVIII_to_DCCCXC);
+
+	//Subtract roman numerals
+	tcase_add_test(tc_core, subtract_V_from_XX);
 
 	suite_add_tcase(s, tc_core);
 
