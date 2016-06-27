@@ -123,6 +123,13 @@ START_TEST (convert_500_to_D) {
 }
 END_TEST
 
+START_TEST (convert_2000_to_MM) {
+	char roman[10];
+	convertArabicNumeralToRoman(2000, roman);
+	ck_assert_str_eq(roman, "MM");
+}
+END_TEST
+
 Suite * to_arabic(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -159,6 +166,7 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_50_to_L);
 	tcase_add_test(tc_core, convert_200_to_CC);
 	tcase_add_test(tc_core, convert_500_to_D);
+	tcase_add_test(tc_core, convert_2000_to_MM);
 
 	suite_add_tcase(s, tc_core);
 
