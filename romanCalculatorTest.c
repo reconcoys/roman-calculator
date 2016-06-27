@@ -19,6 +19,11 @@ START_TEST (convert_V_to_5) {
 }
 END_TEST
 
+START_TEST (convert_VV_to_10) {
+	ck_assert_int_eq(convertRomanNumeralToArabic("VV"), 10);
+}
+END_TEST
+
 Suite * roman_suite(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -31,6 +36,7 @@ Suite * roman_suite(void) {
 	tcase_add_test(tc_core, convert_I_to_1);
 	tcase_add_test(tc_core, convert_II_to_2);
 	tcase_add_test(tc_core, convert_V_to_5);
+	tcase_add_test(tc_core, convert_VV_to_10);
 
 	suite_add_tcase(s, tc_core);
 
