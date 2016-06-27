@@ -36,6 +36,11 @@ void convertArabicNumeralToRoman(int arabic, char* roman) {
 		arabic -= 10;
 	}
 
+	if (arabic == 9) {
+		strcat(roman, "IX");
+		arabic -= 9;
+	}
+
 	int numberOfFives = arabic / 5;
 	for (i = 0; i < numberOfFives; i++) {
 		strcat(roman, "V");
