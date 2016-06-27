@@ -4,18 +4,8 @@
 #include <check.h>
 #include "romanCalculator.h"
 
-START_TEST (convert_I_to_1) {
-	ck_assert_int_eq(convertRomanNumeralToArabic("I"), 1);
-}
-END_TEST
-
 START_TEST (convert_II_to_2) {
 	ck_assert_int_eq(convertRomanNumeralToArabic("II"), 2);
-}
-END_TEST
-
-START_TEST (convert_V_to_5) {
-	ck_assert_int_eq(convertRomanNumeralToArabic("V"), 5);
 }
 END_TEST
 
@@ -24,13 +14,13 @@ START_TEST (convert_VV_to_10) {
 }
 END_TEST
 
-START_TEST (convert_X_to_10) {
-	ck_assert_int_eq(convertRomanNumeralToArabic("X"), 10);
+START_TEST (convert_XX_to_20) {
+	ck_assert_int_eq(convertRomanNumeralToArabic("XX"), 20);
 }
 END_TEST
 
-START_TEST (convert_XX_to_20) {
-	ck_assert_int_eq(convertRomanNumeralToArabic("XX"), 20);
+START_TEST (convert_LL_to_100) {
+	ck_assert_int_eq(convertRomanNumeralToArabic("LL"), 100);
 }
 END_TEST
 
@@ -43,12 +33,11 @@ Suite * roman_suite(void) {
 	/* Core test case */
 	tc_core = tcase_create("First");
 
-	tcase_add_test(tc_core, convert_I_to_1);
 	tcase_add_test(tc_core, convert_II_to_2);
-	tcase_add_test(tc_core, convert_V_to_5);
 	tcase_add_test(tc_core, convert_VV_to_10);
-	tcase_add_test(tc_core, convert_X_to_10);
 	tcase_add_test(tc_core, convert_XX_to_20);
+	tcase_add_test(tc_core, convert_LL_to_100);
+
 	suite_add_tcase(s, tc_core);
 
 	return s;
