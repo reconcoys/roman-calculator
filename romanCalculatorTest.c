@@ -144,6 +144,13 @@ START_TEST (convert_9_to_IX) {
 }
 END_TEST
 
+START_TEST (convert_40_to_XL) {
+	char roman[10];
+	convertArabicNumeralToRoman(40, roman);
+	ck_assert_str_eq(roman, "XL");
+}
+END_TEST
+
 Suite * to_arabic(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -185,6 +192,7 @@ Suite * to_arabic(void) {
 	//substractive arabic to roman conversions
 	tcase_add_test(tc_core, convert_4_to_IV);
 	tcase_add_test(tc_core, convert_9_to_IX);
+	tcase_add_test(tc_core, convert_40_to_XL);
 
 	suite_add_tcase(s, tc_core);
 

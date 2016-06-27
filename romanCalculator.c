@@ -30,6 +30,11 @@ void convertArabicNumeralToRoman(int arabic, char* roman) {
 		arabic -= 50;
 	}
 
+	if (arabic == 40) {
+		strcat(roman, "XL");
+		arabic -= 40;
+	}
+
 	int numberOfTens = arabic / 10;
 	for (i = 0; i < numberOfTens; i++) {
 		strcat(roman, "X");
