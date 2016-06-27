@@ -1,0 +1,1 @@
+int convertRomanNumeralToArabic(char *roman);
