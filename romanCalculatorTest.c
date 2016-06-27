@@ -59,6 +59,11 @@ START_TEST (convert_XC_to_90) {
 }
 END_TEST
 
+START_TEST (convert_CD_to_400) {
+	ck_assert_int_eq(convertRomanNumeralToArabic("CD"), 400);
+}
+END_TEST
+
 Suite * roman_suite(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -80,6 +85,7 @@ Suite * roman_suite(void) {
 	tcase_add_test(tc_core, convert_IX_to_9);
 	tcase_add_test(tc_core, convert_XL_to_40);
 	tcase_add_test(tc_core, convert_XC_to_90);
+	tcase_add_test(tc_core, convert_CD_to_400);
 
 	suite_add_tcase(s, tc_core);
 
