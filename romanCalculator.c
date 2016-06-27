@@ -18,6 +18,11 @@ void convertArabicNumeralToRoman(int arabic, char* roman) {
 		arabic -= 500;
 	}
 
+	if (arabic == 400) {
+		strcat(roman, "CD");
+		arabic -= 400;
+	}
+
 	int numberOfHundreds = arabic / 100;
 	for (i = 0; i < numberOfHundreds; i++) {
 		strcat(roman, "C");
