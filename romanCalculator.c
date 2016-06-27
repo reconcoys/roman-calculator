@@ -1,4 +1,14 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "romanCalculator.h"
+
+void convertArabicNumeralToRoman(int arabic, char* roman) {
+	int i, numberOfOnes = arabic / 1;
+	for (i = 0; i < numberOfOnes; i++) {
+		strcat(roman, "I");
+	}
+}
 
 int convertRomanNumeralToArabic(char *roman) {
 	int i, arabic = 0;

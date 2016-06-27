@@ -74,6 +74,20 @@ START_TEST (convert_MCMXCIV_to_1994) {
 }
 END_TEST
 
+START_TEST (convert_1_to_I) {
+	char roman[10];
+	convertArabicNumeralToRoman(1, roman);
+	ck_assert_str_eq(roman, "I");
+}
+END_TEST
+
+START_TEST (convert_2_to_II) {
+	char roman[10];
+	convertArabicNumeralToRoman(2, roman);
+	ck_assert_str_eq(roman, "II");
+}
+END_TEST
+
 Suite * to_arabic(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -82,6 +96,7 @@ Suite * to_arabic(void) {
 
 	tc_core = tcase_create("First");
 
+	//basic roman to arabic conversions
 	tcase_add_test(tc_core, convert_II_to_2);
 	tcase_add_test(tc_core, convert_VV_to_10);
 	tcase_add_test(tc_core, convert_XX_to_20);
@@ -90,6 +105,7 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_DD_to_1000);
 	tcase_add_test(tc_core, convert_MM_to_1000);
 
+	//subtractive roman to arabic conversions
 	tcase_add_test(tc_core, convert_IV_to_4);
 	tcase_add_test(tc_core, convert_IX_to_9);
 	tcase_add_test(tc_core, convert_XL_to_40);
@@ -97,7 +113,12 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_CD_to_400);
 	tcase_add_test(tc_core, convert_CM_to_900);
 
+	//general sanity test
 	tcase_add_test(tc_core, convert_MCMXCIV_to_1994);
+
+	//arabic to roman conversions
+	tcase_add_test(tc_core, convert_1_to_I);
+	tcase_add_test(tc_core, convert_2_to_II);
 
 	suite_add_tcase(s, tc_core);
 
