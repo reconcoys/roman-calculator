@@ -5,7 +5,13 @@ int convertRomanNumeralToArabic(char *roman) {
 	for (i = 0; i < roman[i] != '\0'; i++) {
 		switch (roman[i]) {
 			case 'I':
-			arabic++;
+				arabic++;
+				break;
+			case 'V':
+				arabic += 5;
+				break;
+			default:
+				arabic = -1;
 		}
 	}
 	return arabic;
