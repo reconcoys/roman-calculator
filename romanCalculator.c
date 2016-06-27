@@ -3,6 +3,15 @@
 #include <string.h>
 #include "romanCalculator.h"
 
+void addRomanNumerals(char *first, char *second, char* result) {
+	int firstArabic = convertRomanNumeralToArabic(first);
+	int secondArabic = convertRomanNumeralToArabic(second);
+
+	int resultArabic = firstArabic + secondArabic;
+
+	convertArabicNumeralToRoman(resultArabic, result);
+}
+
 void convertArabicNumeralToRoman(int arabic, char* roman) {
 	int i;
 

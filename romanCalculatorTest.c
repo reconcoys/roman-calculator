@@ -172,6 +172,20 @@ START_TEST (convert_900_to_CM) {
 }
 END_TEST
 
+START_TEST (add_I_to_I) {
+	char roman[10];
+	addRomanNumerals("I", "I", roman);
+	ck_assert_str_eq(roman, "II");
+}
+END_TEST
+
+START_TEST (add_V_to_V) {
+	char roman[10];
+	addRomanNumerals("V", "V", roman);
+	ck_assert_str_eq(roman, "X");
+}
+END_TEST
+
 Suite * to_arabic(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -217,6 +231,10 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_90_to_XC);
 	tcase_add_test(tc_core, convert_400_to_CD);
 	tcase_add_test(tc_core, convert_900_to_CM);
+
+	//Add roman numerals together
+	tcase_add_test(tc_core, add_I_to_I);
+	tcase_add_test(tc_core, add_V_to_V);
 
 	suite_add_tcase(s, tc_core);
 
