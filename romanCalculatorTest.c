@@ -95,6 +95,13 @@ START_TEST (convert_5_to_V) {
 }
 END_TEST
 
+START_TEST (convert_20_to_XX) {
+	char roman[10];
+	convertArabicNumeralToRoman(20, roman);
+	ck_assert_str_eq(roman, "XX");
+}
+END_TEST
+
 Suite * to_arabic(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -127,6 +134,7 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_1_to_I);
 	tcase_add_test(tc_core, convert_2_to_II);
 	tcase_add_test(tc_core, convert_5_to_V);
+	tcase_add_test(tc_core, convert_20_to_XX);
 
 	suite_add_tcase(s, tc_core);
 

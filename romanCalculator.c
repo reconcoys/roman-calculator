@@ -6,6 +6,12 @@
 void convertArabicNumeralToRoman(int arabic, char* roman) {
 	int i;
 
+	int numberOfTens = arabic / 10;
+	for (i = 0; i < numberOfTens; i++) {
+		strcat(roman, "X");
+		arabic -= 10;
+	}
+
 	int numberOfFives = arabic / 5;
 	for (i = 0; i < numberOfFives; i++) {
 		strcat(roman, "V");
