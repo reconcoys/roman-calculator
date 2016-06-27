@@ -186,6 +186,13 @@ START_TEST (add_V_to_V) {
 }
 END_TEST
 
+START_TEST (add_CCXCVIII_to_DCCCXC) {
+	char roman[11];
+	addRomanNumerals("CCXCVIII", "DCCCXC", roman);
+	ck_assert_str_eq(roman, "MCLXXXVIII");
+}
+END_TEST
+
 Suite * to_arabic(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -235,6 +242,7 @@ Suite * to_arabic(void) {
 	//Add roman numerals together
 	tcase_add_test(tc_core, add_I_to_I);
 	tcase_add_test(tc_core, add_V_to_V);
+	tcase_add_test(tc_core, add_CCXCVIII_to_DCCCXC);
 
 	suite_add_tcase(s, tc_core);
 
