@@ -12,6 +12,11 @@ void convertArabicNumeralToRoman(int arabic, char* roman) {
 		arabic -= 1000;
 	}
 
+	if (arabic == 900) {
+		strcat(roman, "CM");
+		arabic -= 900;
+	}
+
 	int numberOfFiveHundreds = arabic / 500;
 	for (i = 0; i < numberOfFiveHundreds; i++) {
 		strcat(roman, "D");
