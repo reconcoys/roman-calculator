@@ -74,13 +74,12 @@ START_TEST (convert_MCMXCIV_to_1994) {
 }
 END_TEST
 
-Suite * roman_suite(void) {
+Suite * to_arabic(void) {
 	Suite *s;
 	TCase *tc_core;
 
-	s = suite_create("Roman");
+	s = suite_create("to_arabic");
 
-	/* Core test case */
 	tc_core = tcase_create("First");
 
 	tcase_add_test(tc_core, convert_II_to_2);
@@ -109,7 +108,7 @@ int main(void) {
 	int number_failed;
 	Suite *s;
 	SRunner *sr;
-	s = roman_suite();
+	s = to_arabic();
 	sr = srunner_create(s);
 
 	srunner_run_all(sr, CK_NORMAL);
