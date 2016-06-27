@@ -22,6 +22,9 @@ int convertRomanNumeralToArabic(char *roman) {
 			case 'D':
 				arabic += 500;
 				break;
+			case 'M':
+				arabic += 1000;
+				break;
 			default:
 				arabic = -1;
 		}
