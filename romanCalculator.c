@@ -24,6 +24,11 @@ void convertArabicNumeralToRoman(int arabic, char* roman) {
 		arabic -= 100;
 	}
 
+	if (arabic == 90) {
+		strcat(roman, "XC");
+		arabic -= 90;
+	}
+
 	int numberOfFifties = arabic / 50;
 	for (i = 0; i < numberOfFifties; i++) {
 		strcat(roman, "L");
