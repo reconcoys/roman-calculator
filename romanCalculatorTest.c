@@ -116,6 +116,13 @@ START_TEST (convert_200_to_CC) {
 }
 END_TEST
 
+START_TEST (convert_500_to_D) {
+	char roman[10];
+	convertArabicNumeralToRoman(500, roman);
+	ck_assert_str_eq(roman, "D");
+}
+END_TEST
+
 Suite * to_arabic(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -151,6 +158,7 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_20_to_XX);
 	tcase_add_test(tc_core, convert_50_to_L);
 	tcase_add_test(tc_core, convert_200_to_CC);
+	tcase_add_test(tc_core, convert_500_to_D);
 
 	suite_add_tcase(s, tc_core);
 
