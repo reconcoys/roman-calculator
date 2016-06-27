@@ -24,6 +24,11 @@ START_TEST (convert_LL_to_100) {
 }
 END_TEST
 
+START_TEST (convert_CC_to_200) {
+	ck_assert_int_eq(convertRomanNumeralToArabic("CC"), 200);
+}
+END_TEST
+
 Suite * roman_suite(void) {
 	Suite *s;
 	TCase *tc_core;
@@ -37,6 +42,7 @@ Suite * roman_suite(void) {
 	tcase_add_test(tc_core, convert_VV_to_10);
 	tcase_add_test(tc_core, convert_XX_to_20);
 	tcase_add_test(tc_core, convert_LL_to_100);
+	tcase_add_test(tc_core, convert_CC_to_200);
 
 	suite_add_tcase(s, tc_core);
 
