@@ -6,7 +6,7 @@ This project enables you to both add two Roman numerals together and subtract th
 
 Build and run all tests with ```make```
 
-## Testing in Ubuntu 14.04
+## Testing in Ubuntu 14.04 from Docker
 
 * ```docker build -t ubuntu-roman .```
 
