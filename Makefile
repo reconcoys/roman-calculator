@@ -7,7 +7,7 @@ TEST = romanCalculatorTest
 
 SOURCE = romanCalculator
 
-all: $(SOURCE) $(TEST)
+all: check
 
 check: check_roman
 	./$(TEST)

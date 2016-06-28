@@ -1,0 +1,1 @@
+# Build and run all tests with ```make```
