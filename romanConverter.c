@@ -2,78 +2,78 @@
 #include <stdio.h>
 #include <string.h>
 
-void convertArabicNumeralToRoman(int arabic, char* roman) {
+void convertArabicNumeralToRoman(int arabic, char* roman, int romanLength) {
 	int i;
 
 	int numberOfThousands = arabic / 1000;
 	for (i = 0; i < numberOfThousands; i++) {
-		strcat(roman, "M");
+		strlcat(roman, "M", romanLength);
 		arabic -= 1000;
 	}
 
 	if (arabic == 900) {
-		strcat(roman, "CM");
+		strlcat(roman, "CM", romanLength);
 		arabic -= 900;
 	}
 
 	int numberOfFiveHundreds = arabic / 500;
 	for (i = 0; i < numberOfFiveHundreds; i++) {
-		strcat(roman, "D");
+		strlcat(roman, "D", romanLength);
 		arabic -= 500;
 	}
 
 	if (arabic == 400) {
-		strcat(roman, "CD");
+		strlcat(roman, "CD", romanLength);
 		arabic -= 400;
 	}
 
 	int numberOfHundreds = arabic / 100;
 	for (i = 0; i < numberOfHundreds; i++) {
-		strcat(roman, "C");
+		strlcat(roman, "C", romanLength);
 		arabic -= 100;
 	}
 
 	if (arabic == 90) {
-		strcat(roman, "XC");
+		strlcat(roman, "XC", romanLength);
 		arabic -= 90;
 	}
 
 	int numberOfFifties = arabic / 50;
 	for (i = 0; i < numberOfFifties; i++) {
-		strcat(roman, "L");
+		strlcat(roman, "L", romanLength);
 		arabic -= 50;
 	}
 
 	if (arabic == 40) {
-		strcat(roman, "XL");
+		strlcat(roman, "XL", romanLength);
 		arabic -= 40;
 	}
 
 	int numberOfTens = arabic / 10;
 	for (i = 0; i < numberOfTens; i++) {
-		strcat(roman, "X");
+		strlcat(roman, "X", romanLength);
 		arabic -= 10;
 	}
 
 	if (arabic == 9) {
-		strcat(roman, "IX");
+		strlcat(roman, "IX", romanLength);
 		arabic -= 9;
 	}
 
 	int numberOfFives = arabic / 5;
 	for (i = 0; i < numberOfFives; i++) {
-		strcat(roman, "V");
+		strlcat(roman, "V", romanLength);
 		arabic -= 5;
 	}
 
 	if (arabic == 4) {
-		strcat(roman, "IV");
+		strlcat(roman, "IV", romanLength);
 		arabic -= 4;
 	}
 
 	int numberOfOnes = arabic / 1;
 	for (i = 0; i < numberOfOnes; i++) {
-		strcat(roman, "I");
+		strlcat(roman, "I", romanLength);
 		arabic -= 1;
 	}
 }

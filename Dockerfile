@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y \
     check \
     git \
     nano \
-    pkg-config
+    pkg-config \
+    libbsd-dev
 
 RUN git clone https://github.com/reconcoys/roman-calculator.git /tmp
 

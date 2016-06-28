@@ -77,126 +77,127 @@ END_TEST
 
 START_TEST (convert_1_to_I) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(1, roman);
+	convertArabicNumeralToRoman(1, roman, 32);
 	ck_assert_str_eq(roman, "I");
 }
 END_TEST
 
 START_TEST (convert_2_to_II) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(2, roman);
+	convertArabicNumeralToRoman(2, roman, 32);
 	ck_assert_str_eq(roman, "II");
 }
 END_TEST
 
 START_TEST (convert_5_to_V) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(5, roman);
+	convertArabicNumeralToRoman(5, roman, 32);
 	ck_assert_str_eq(roman, "V");
 }
 END_TEST
 
 START_TEST (convert_20_to_XX) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(20, roman);
+	convertArabicNumeralToRoman(20, roman, 32);
 	ck_assert_str_eq(roman, "XX");
 }
 END_TEST
 
 START_TEST (convert_50_to_L) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(50, roman);
+	convertArabicNumeralToRoman(50, roman, 32);
 	ck_assert_str_eq(roman, "L");
 }
 END_TEST
 
 START_TEST (convert_200_to_CC) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(200, roman);
+	convertArabicNumeralToRoman(200, roman, 32);
 	ck_assert_str_eq(roman, "CC");
 }
 END_TEST
 
 START_TEST (convert_500_to_D) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(500, roman);
+	convertArabicNumeralToRoman(500, roman, 32);
 	ck_assert_str_eq(roman, "D");
 }
 END_TEST
 
 START_TEST (convert_2000_to_MM) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(2000, roman);
+	convertArabicNumeralToRoman(2000, roman, 32);
 	ck_assert_str_eq(roman, "MM");
 }
 END_TEST
 
 START_TEST (convert_4_to_IV) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(4, roman);
+	convertArabicNumeralToRoman(4, roman, 32);
 	ck_assert_str_eq(roman, "IV");
 }
 END_TEST
 
 START_TEST (convert_9_to_IX) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(9, roman);
+	convertArabicNumeralToRoman(9, roman, 32);
 	ck_assert_str_eq(roman, "IX");
 }
 END_TEST
 
 START_TEST (convert_40_to_XL) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(40, roman);
+	convertArabicNumeralToRoman(40, roman, 32);
 	ck_assert_str_eq(roman, "XL");
 }
 END_TEST
 
 START_TEST (convert_90_to_XC) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(90, roman);
+	convertArabicNumeralToRoman(90, roman, 32);
 	ck_assert_str_eq(roman, "XC");
 }
 END_TEST
 
 START_TEST (convert_400_to_CD) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(400, roman);
+	convertArabicNumeralToRoman(400, roman, 32);
 	ck_assert_str_eq(roman, "CD");
 }
 END_TEST
 
 START_TEST (convert_900_to_CM) {
 	char roman[32] = "";
-	convertArabicNumeralToRoman(900, roman);
+	convertArabicNumeralToRoman(900, roman, 32);
 	ck_assert_str_eq(roman, "CM");
 }
 END_TEST
 
 START_TEST (add_I_to_I) {
 	char roman[32] = "";
-	addRomanNumerals("I", "I", roman);
+	addRomanNumerals("I", "I", roman, 32);
 	ck_assert_str_eq(roman, "II");
 }
 END_TEST
 
 START_TEST (add_V_to_V) {
 	char roman[32] = "";
-	addRomanNumerals("V", "V", roman);
+	addRomanNumerals("V", "V", roman, 32);
 	ck_assert_str_eq(roman, "X");
 }
 END_TEST
 
 START_TEST (add_CCXCVIII_to_DCCCXC) {
 	char roman[32] = "";
-	addRomanNumerals("CCXCVIII", "DCCCXC", roman);
+	addRomanNumerals("CCXCVIII", "DCCCXC", roman, 32);
 	ck_assert_str_eq(roman, "MCLXXXVIII");
 }
 END_TEST
 
 START_TEST (subtract_V_from_XX) {
+
 	char roman[32] = "";
-	subtractFirstFromSecondRomanNumerals("V", "XX", roman);
+	subtractFirstFromSecondRomanNumerals("V", "XX", roman, 32);
 	ck_assert_str_eq(roman, "XV");
 }
 END_TEST

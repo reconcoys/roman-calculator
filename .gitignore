@@ -1,4 +1,4 @@
 romanCalculator
-romanCalculator.dSYM
+*.dSYM
 .DS_Store
 romanCalculatorTest

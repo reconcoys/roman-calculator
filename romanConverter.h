@@ -3,6 +3,6 @@
 
 int convertRomanNumeralToArabic(char *roman);
 
-void convertArabicNumeralToRoman(int arabic, char* roman);
+void convertArabicNumeralToRoman(int arabic, char* roman, int romanLength);
 
 #endif
