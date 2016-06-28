@@ -3,6 +3,7 @@
 #include <string.h>
 #include <check.h>
 #include "romanCalculator.h"
+#include "romanConverter.h"
 
 START_TEST (convert_II_to_2) {
 	ck_assert_int_eq(convertRomanNumeralToArabic("II"), 2);

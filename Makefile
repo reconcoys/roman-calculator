@@ -5,15 +5,17 @@ CC = gcc
 
 TEST = romanCalculatorTest
 
-SOURCE = romanCalculator
+CALCULATOR = romanCalculator
+
+CONVERTER = romanConverter
 
 all: check
 
 check: check_roman
 	./$(TEST)
 
-check_roman: $(SOURCE).c $(TEST).c
-	$(CC) $(CFLAGS) -o $(TEST) $(SOURCE).c $(TEST).c $(LIBS)
+check_roman: $(CALCULATOR).c $(TEST).c $(CONVERTER).c
+	$(CC) $(CFLAGS) -o $(TEST) $(CONVERTER).c $(CALCULATOR).c $(TEST).c $(LIBS)
 
 clean:
-	rm -f *.o $(SOURCE) $(TEST) a.out
+	rm -f *.o $(CALCULATOR) $(TEST) $(CONVERTER) a.out
