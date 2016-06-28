@@ -1,5 +1,5 @@
-CFLAGS =  `pkg-config --cflags check`
-LIBS = `pkg-config --libs check`
+CFLAGS =  `pkg-config --cflags check libbsd`
+LIBS = `pkg-config --libs check libbsd`
 
 CC = gcc
 
