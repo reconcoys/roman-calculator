@@ -2,9 +2,13 @@
 
 This project enables you to both add two Roman numerals together and subtract them.
 
-Note: in order to run this, you must have installed the following packages in Ubuntu:
+Note: in order to run this, you must have installed the following packages in Ubuntu: 
 
-check, pkg-config, libbsd-dev
+```
+  check
+  pkg-config
+  libbsd-dev
+```
 
 ## Running
 
