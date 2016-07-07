@@ -16,7 +16,7 @@ void convertArabicNumeralToRoman(int arabic, char* roman, int romanLength) {
 	}
 }
 
-int romanLetterToNumber(char romanLetter) {
+static int romanLetterToNumber(char romanLetter) {
 	int number;
 	switch (romanLetter) {
 		case 'I':
