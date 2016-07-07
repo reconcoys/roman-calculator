@@ -217,7 +217,6 @@ Suite * to_arabic(void) {
 
 	tc_core = tcase_create("First");
 
-	//basic roman to arabic conversions
 	tcase_add_test(tc_core, convert_II_to_2);
 	tcase_add_test(tc_core, convert_VV_to_10);
 	tcase_add_test(tc_core, convert_XX_to_20);
@@ -226,7 +225,6 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_DD_to_1000);
 	tcase_add_test(tc_core, convert_MM_to_1000);
 
-	//subtractive roman to arabic conversions
 	tcase_add_test(tc_core, convert_IV_to_4);
 	tcase_add_test(tc_core, convert_IX_to_9);
 	tcase_add_test(tc_core, convert_XL_to_40);
@@ -234,10 +232,21 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_CD_to_400);
 	tcase_add_test(tc_core, convert_CM_to_900);
 
-	//general sanity test
 	tcase_add_test(tc_core, convert_MCMXCIV_to_1994);
 
-	// basic arabic to roman conversions
+	suite_add_tcase(s, tc_core);
+
+	return s;
+}
+
+Suite * to_roman(void) {
+	Suite *s;
+	TCase *tc_core;
+
+	s = suite_create("to_roman");
+
+	tc_core = tcase_create("First");
+
 	tcase_add_test(tc_core, convert_1_to_I);
 	tcase_add_test(tc_core, convert_2_to_II);
 	tcase_add_test(tc_core, convert_5_to_V);
@@ -247,7 +256,6 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_500_to_D);
 	tcase_add_test(tc_core, convert_2000_to_MM);
 
-	//substractive arabic to roman conversions
 	tcase_add_test(tc_core, convert_4_to_IV);
 	tcase_add_test(tc_core, convert_9_to_IX);
 	tcase_add_test(tc_core, convert_40_to_XL);
@@ -255,13 +263,37 @@ Suite * to_arabic(void) {
 	tcase_add_test(tc_core, convert_400_to_CD);
 	tcase_add_test(tc_core, convert_900_to_CM);
 
-	//Add roman numerals
+	suite_add_tcase(s, tc_core);
+
+	return s;
+}
+
+Suite * add_romans(void) {
+	Suite *s;
+	TCase *tc_core;
+
+	s = suite_create("add_romans");
+
+	tc_core = tcase_create("First");
+
 	tcase_add_test(tc_core, add_I_to_I);
 	tcase_add_test(tc_core, add_V_to_V);
 	tcase_add_test(tc_core, add_CCXCVIII_to_DCCCXC);
 	tcase_add_test(tc_core, add_to_get_most_lengthy_roman_numeral);
 
-	//Subtract roman numerals
+	suite_add_tcase(s, tc_core);
+
+	return s;
+}
+
+Suite * subtract_romans(void) {
+	Suite *s;
+	TCase *tc_core;
+
+	s = suite_create("subtract_romans");
+
+	tc_core = tcase_create("First");
+
 	tcase_add_test(tc_core, subtract_V_from_XX);
 
 	suite_add_tcase(s, tc_core);
@@ -269,14 +301,28 @@ Suite * to_arabic(void) {
 	return s;
 }
 
+
 int main(void) {
 	int number_failed;
-	Suite *s;
+	Suite *to_arabic_suite, *to_roman_suite, *add_romans_suite, *subtract_romans_suite;
 	SRunner *sr;
-	s = to_arabic();
-	sr = srunner_create(s);
 
+	to_arabic_suite = to_arabic();
+	sr = srunner_create(to_arabic_suite);
 	srunner_run_all(sr, CK_NORMAL);
+
+	to_roman_suite = to_roman();
+	sr = srunner_create(to_roman_suite);
+	srunner_run_all(sr, CK_NORMAL);
+
+	add_romans_suite = add_romans();
+	sr = srunner_create(add_romans_suite);
+	srunner_run_all(sr, CK_NORMAL);
+
+	subtract_romans_suite = subtract_romans();
+	sr = srunner_create(subtract_romans_suite);
+	srunner_run_all(sr, CK_NORMAL);
+
 	number_failed = srunner_ntests_failed(sr);
 	srunner_free(sr);
 	return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;	
