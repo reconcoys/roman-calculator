@@ -16,67 +16,56 @@ void convertArabicNumeralToRoman(int arabic, char* roman, int romanLength) {
 	}
 }
 
-int convertRomanNumeralToArabic(char *roman) {
-	int i, arabic = 0;
-	for (i = 0; i < roman[i] != '\0'; i++) {
-		switch (roman[i]) {
-			case 'I':
-				switch (roman[i+1]) {
-					case 'V':
-						arabic += 4;
-						i++;
-						break;
-					case 'X':
-						arabic += 9;
-						i++;
-						break;
-					default:
-						arabic++;
-				}
-				break;
-			case 'V':
-				arabic += 5;
-				break;
-			case 'X':
-				switch (roman[i+1]) {
-					case 'L':
-						arabic += 40;
-						i++;
-						break;
-					case 'C':
-						arabic += 90;
-						i++;
-						break;
-					default:
-						arabic += 10;
-				}
-				break;
-			case 'L':
-				arabic += 50;
-				break;
-			case 'C':
-				switch (roman[i+1]) {
-					case 'D':
-						arabic += 400;
-						i++;
-						break;
-					case 'M':
-						arabic += 900;
-						i++;
-						break;
-					default:
-						arabic += 100;
-				}
-				break;
-			case 'D':
-				arabic += 500;
-				break;
-			case 'M':
-				arabic += 1000;
-				break;
-			default:
-				arabic = -1;
-		}
+int romanLetterToNumber(char romanLetter) {
+	int number;
+	switch (romanLetter) {
+		case 'I':
+			number = 1;
+			break;
+		case 'V':
+			number = 5;
+			break;
+		case 'X':
+			number = 10;
+			break;
+		case 'L':
+			number = 50;
+			break;
+		case 'C':
+			number = 100;
+			break;
+		case 'D':
+			number = 500;
+			break;
+		case 'M':
+			number = 1000;
+			break;
+		default:
+			number = 0;
 	}
+	return number;
+}
+
+int convertRomanNumeralToArabic(char *roman) {
+	int arabic = 0, i = 0, currentValue = 0, nextValue = 0;
+
+	while (roman[i] != '\0') {
+		currentValue = romanLetterToNumber(roman[i]);
+		if (roman[i + 1] != '\0') {
+			nextValue = romanLetterToNumber(roman[i + 1]);
+			if (nextValue > currentValue) {
+				arabic += nextValue - currentValue;
+				i++;
+			}
+			else {
+				arabic += currentValue;
+			}
+		}
+		else {
+			arabic += currentValue;
+		}
+		i++;
+	}
+
 	return arabic;
 }
