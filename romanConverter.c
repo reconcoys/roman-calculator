@@ -47,24 +47,20 @@ static int romanLetterToNumber(char romanLetter) {
 }
 
 int convertRomanNumeralToArabic(char *roman) {
-	int arabic = 0, i = 0, currentValue = 0, nextValue = 0;
+	int arabic = 0;
+	int currentValue = 0;
+	int nextValue = 0;
 
-	while (roman[i] != '\0') {
+	for (int i = 0; roman[i] != '\0'; i++) {
 		currentValue = romanLetterToNumber(roman[i]);
-		if (roman[i + 1] != '\0') {
-			nextValue = romanLetterToNumber(roman[i + 1]);
-			if (nextValue > currentValue) {
-				arabic += nextValue - currentValue;
-				i++;
-			}
-			else {
-				arabic += currentValue;
-			}
+		nextValue = romanLetterToNumber(roman[i + 1]);
+		if (nextValue > currentValue) {
+			arabic += nextValue - currentValue;
+			i++;
 		}
 		else {
 			arabic += currentValue;
 		}
-		i++;
 	}
 
 	return arabic;
