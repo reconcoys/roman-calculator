@@ -46,7 +46,7 @@ static int romanLetterToNumber(char romanLetter) {
 	return number;
 }
 
-int convertRomanNumeralToArabic(char *roman) {
+int convertRomanNumeralToArabic(const char *roman) {
 	int arabic = 0;
 	int currentValue = 0;
 	int nextValue = 0;
