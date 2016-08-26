@@ -55,8 +55,7 @@ int convertRomanNumeralToArabic(const char *roman) {
 		currentValue = romanLetterToNumber(roman[i]);
 		nextValue = romanLetterToNumber(roman[i + 1]);
 		if (nextValue > currentValue) {
-			arabic += nextValue - currentValue;
-			i++;
+			arabic -= currentValue;
 		}
 		else {
 			arabic += currentValue;
